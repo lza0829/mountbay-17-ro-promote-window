@@ -1,0 +1,159 @@
+:root {
+  --bg: #0e1618;
+  --panel: #152024;
+  --ink: #e4f0ea;
+  --mute: #7a9088;
+  --line: #243338;
+  --path: #e6c35c;
+  --teal: #3db8a0;
+  --foam: #9fe8d2;
+  --bad: #e07060;
+  --ok: #5ecf9a;
+  --display: "DM Sans", "Noto Sans SC", sans-serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--body);
+  background:
+    radial-gradient(700px 380px at 100% 0%, rgba(61, 184, 160, 0.12), transparent 55%),
+    radial-gradient(600px 320px at 0% 100%, rgba(230, 195, 92, 0.08), transparent 50%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(159, 232, 210, 0.03) 18px,
+      rgba(159, 232, 210, 0.03) 19px
+    ),
+    var(--bg);
+}
+
+.壳 {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+@media (max-width: 860px) {
+  .壳 { grid-template-columns: 1fr; }
+  .侧轨 { border-right: none; border-bottom: 1px solid var(--line); }
+}
+
+.侧轨 {
+  background: linear-gradient(180deg, #121c20, #0f171a);
+  border-right: 1px solid var(--line);
+  padding: 1.25rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.侧英 {
+  font-family: var(--display);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.侧名 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0.15rem 0 0;
+  letter-spacing: 0.04em;
+}
+.侧名 span { color: var(--path); }
+.侧骨 {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.侧导 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+.侧导 a {
+  color: var(--mute);
+  text-decoration: none;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.侧导 a:hover { color: var(--ink); background: rgba(61, 184, 160, 0.08); }
+.侧导 a.亮 {
+  color: var(--bg);
+  background: var(--path);
+  border-color: #c9a63f;
+}
+.侧脚 {
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--mute);
+}
+
+.主 { padding: 1.4rem 1.6rem 2rem; }
+.牌 {
+  background: rgba(21, 32, 36, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+.牌 h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+.牌 p { margin: 0; color: var(--mute); line-height: 1.55; }
+.行 { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.9rem 0; }
+button, .钮 {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 9px;
+  border: 1px solid #355048;
+  background: #1a2c2a;
+  color: var(--ink);
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+}
+button.主钮 {
+  background: var(--path);
+  color: #1a1406;
+  border-color: #c9a63f;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.path {
+  font-family: var(--mono);
+  color: var(--foam);
+  font-size: 0.86rem;
+}
+.表 { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.表 th, .表 td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  padding: 0.55rem 0.4rem;
+  vertical-align: top;
+}
+.表 th { color: var(--mute); font-weight: 600; }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+.静 { color: var(--mute); font-size: 0.85rem; }
+.格网 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+.格 {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: rgba(14, 22, 24, 0.55);
+}
+.格 b { display: block; font-size: 1.4rem; font-family: var(--display); color: var(--path); }

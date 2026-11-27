@@ -1,0 +1,17 @@
+name: mountbay
+services:
+  backend:
+    build: ./backend
+    ports: ["12200:12200"]
+    volumes:
+      - mountbay_data:/data
+      - ./fixtures:/fixtures:ro
+    environment:
+      数据目录: /data
+      预置目录: /fixtures
+  frontend:
+    build: ./frontend
+    ports: ["7200:80"]
+    depends_on: [backend]
+volumes:
+  mountbay_data:
